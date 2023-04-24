@@ -6,13 +6,15 @@
   
   <title>感知器线性单元梯度下降 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="article">
+  <meta name="description" content="一.深度学习  1.输入层隐藏层和输出层神经元被分成了多层，层与层之间的神经元有连接，而层内之间的神经元没有连接。最左边的层叫做输入层，这层负责接收输入数据；最右边的层叫输出层，可以从这层获取神经网络输出数据。输入层和输出层之间的层叫做隐藏层。隐藏层比较多（大于2）的神经网络叫做深度神经网络。而深度学习，就是使">
+<meta property="og:type" content="article">
 <meta property="og:title" content="感知器线性单元梯度下降">
 <meta property="og:url" content="http://example.com/2023/04/20/%E6%84%9F%E7%9F%A5%E5%99%A8%E7%BA%BF%E6%80%A7%E5%8D%95%E5%85%83%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一.深度学习  1.输入层隐藏层和输出层神经元被分成了多层，层与层之间的神经元有连接，而层内之间的神经元没有连接。最左边的层叫做输入层，这层负责接收输入数据；最右边的层叫输出层，可以从这层获取神经网络输出数据。输入层和输出层之间的层叫做隐藏层。隐藏层比较多（大于2）的神经网络叫做深度神经网络。而深度学习，就是使">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-04-20T01:48:50.000Z">
-<meta property="article:modified_time" content="2023-04-20T01:48:50.801Z">
+<meta property="article:modified_time" content="2023-04-24T09:42:29.443Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -93,11 +95,24 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <pre><code>                                            一.深度学习
+</code></pre>
+<p>1.输入层隐藏层和输出层<br>神经元被分成了多层，层与层之间的神经元有连接，而层内之间的神经元没有连接。<br>最左边的层叫做输入层，这层负责接收输入数据；最右边的层叫输出层，可以从这层获取神经网络输出数据。输入层和输出层之间的层叫做隐藏层。<br>隐藏层比较多（大于2）的神经网络叫做深度神经网络。而深度学习，就是使用深层架构（比如，深度神经网络）的机器学习方法。</p>
+<p>2.深层网络和浅层网络<br>深层网络能够表达力更强。深层网络也有劣势，就是它不太容易训练。</p>
+<pre><code>                                            二.感知器
+</code></pre>
+<p>一.感知器由输入权值，激活函数和输出三个部分组成。<br>1.输入权值<br>一个感知器可以有多个输入，而每个输入都要有一个权值w，此外还有一个偏置项b<br>2.激活函数<br>激活函数有多种选择，比如阶跃函数<br>3.输出<br>公式：f(w*x+b)</p>
+<p>二.感知器的运用<br>1.可以用来实现and和or函数等布尔运算<br>2.除了布尔运算也可以拟合任何的线性函数，任何线性分类或线性回归问题都可以用感知器来解决。<br>但是非线性就不能用感知器进行运算，比如异或运算。</p>
+<p>三. 感知器的训练<br>权重值和偏置项的初始化为0，利用感知器规则迭代的修改wi和bi直到训练完成（也就是不断地进行趋近）</p>
+<pre><code>                                            三线性单元
+</code></pre>
+<p>一.线性单元简介<br>感知器有一个问题，当面对的数据集不是线性可分的时候，感知器规则可能无法收敛，这意味着我们永远也无法完成一个感知器的训练。为了解决这个问题，我们使用一个可导的线性函数来替代感知器的阶跃函数，这种感知器就叫做线性单元。线性单元在面对线性不可分的数据集时，会收敛到一个最佳的近似上。这样替换了激活函数之后，线性单元将返回一个实数值而不是0,1分类。因此线性单元用来解决回归问题而不是分类问题。<br>线性模型写成向量的形式。行列相乘为一个数</p>
+<p>二.监督学习和无监督学习<br>机器学习有一类学习方法叫做监督学习，它是说为了训练一个模型，我们要提供这样一堆训练样本。每个训练样本既包括输入特征x，也包括对应的输出y(y也叫做标记，label)。也就是说，我们要找到很多人，我们既知道他们的特征(工作年限，行业…)，也知道他们的收入。我们用这样的样本去训练模型，让模型既看到我们提出的每个问题(输入特征x)，也看到对应问题的答案(标记y)。当模型看到足够多的样本之后，它就能总结出其中的一些规律。然后，就可以预测那些它没看过的输入所对应的答案了。<br>另外一类学习方法叫做无监督学习，这种方法的训练样本中只有x而没有y。模型可以总结出特征x的一些规律，但是无法知道其对应的答案。</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/04/20/%E6%84%9F%E7%9F%A5%E5%99%A8%E7%BA%BF%E6%80%A7%E5%8D%95%E5%85%83%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/" data-id="clgunfh4o0001vov4hlvjdqxx" data-title="感知器线性单元梯度下降" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2023/04/20/%E6%84%9F%E7%9F%A5%E5%99%A8%E7%BA%BF%E6%80%A7%E5%8D%95%E5%85%83%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/" data-id="clgunh0670002acv42nj99pzc" data-title="感知器线性单元梯度下降" class="article-share-link">Share</a>
       
       
       
